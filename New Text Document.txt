@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Kamaljit Kaur - Web Developer Portfolio</title>
+  <link rel="icon" type="image/png" href="image/favicon.png">
+
+  <link rel="apple-touch-icon" href="image/favicon-kk.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            logo: ['"Montserrat"', 'sans-serif'], 
+          },
+          colors: {
+            'cream': '#fffafc',
+            'glass-white': 'rgba(255, 255, 255, 0.7)',
+            'rose-border': '#fecdd3',
+            'girly-pink': '#ff80bf',
+            'midnight': '#0a0a0a',
+            'charcoal': '#171717',
+            'glass-dark': 'rgba(23, 23, 23, 0.7)',
+            'neon-pink': '#ff4da6',
+          },
+          animation: {
+            'blob': 'blob 7s infinite',
+            'tilt': 'tilt 10s infinite linear', 
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+             tilt: {
+              '0%, 50%, 100%': { transform: 'rotate(0deg)' },
+              '25%': { transform: 'rotate(1deg)' },
+              '75%': { transform: 'rotate(-1deg)' },
+            },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #ffb3d9; border-radius: 5px; }
+    .dark ::-webkit-scrollbar-thumb { background: #444; }
+
+    /* Glassmorphism Utilities */
+    .glass {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-cream text-gray-800 dark:bg-midnight dark:text-gray-200 transition-colors duration-300 relative overflow-x-hidden">
+
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob dark:bg-purple-900 dark:mix-blend-normal dark:opacity-20"></div>
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 dark:bg-pink-900 dark:mix-blend-normal dark:opacity-20"></div>
+    <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000 dark:bg-slate-800 dark:mix-blend-normal dark:opacity-20"></div>
+  </div>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <header class="sticky top-0 z-50 glass bg-glass-white/80 dark:bg-black/60 border-b border-rose-100 dark:border-white/10 shadow-sm transition-colors duration-300">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        <div class="flex items-center gap-4">
+           <div class="relative group">
+            <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-violet-500 rounded-2xl blur-sm opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <div class="relative w-12 h-12 rounded-2xl bg-cream dark:bg-charcoal border border-pink-200/50 dark:border-pink-500/30 flex items-center justify-center transform hover:scale-105 transition-transform overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-pink-100/20 dark:from-white/5 dark:to-white/0 pointer-events-none"></div>
+                <span class="font-logo text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-violet-600 dark:from-pink-400 dark:to-violet-400 font-extrabold text-xl tracking-tighter leading-none">
+                  K<span class="-ml-[3px] text-rose-500 dark:text-rose-400 opacity-90">K</span>
+                </span>
+            </div>
+          </div>
+          <div class="hidden sm:block">
+            <div class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">Kamaljit Kaur</div>
+
+            <div class="text-xs font-medium text-pink-500 dark:text-pink-400 uppercase tracking-wide">Web Developer</div>
+
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+            <a href="#about" class="hover:text-pink-500 dark:hover:text-white transition-colors">About</a>
+            <a href="#skills" class="hover:text-pink-500 dark:hover:text-white transition-colors">Skills</a>
+
+            <a href="#experience" class="hover:text-pink-500 dark:hover:text-white transition-colors">Experience</a>
+            <a href="#projects" class="hover:text-pink-500 dark:hover:text-white transition-colors">Projects</a>
+
+          </nav>
+
+          <button id="themeToggle" aria-label="Toggle dark mode" class="group relative w-10 h-10 rounded-full bg-white dark:bg-charcoal border border-rose-200 dark:border-gray-700 shadow-sm flex items-center justify-center transition-all hover:scale-110 active:scale-95">
+            <svg id="iconSun" class="w-5 h-5 text-orange-400 transition-transform duration-500 rotate-0 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg id="iconMoon" class="w-5 h-5 text-pink-400 hidden dark:block transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+
+          <a href="#contact" class="hidden md:inline-block bg-gray-900 dark:bg-white text-white dark:text-black px-5 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm">Hire Me</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <section id="about" class="relative pt-20 pb-24">
+        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          
+          <div class="space-y-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
+              I build fast, <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">accessible & delightful</span> <br />
+              web experiences.
+            </h1>
+
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-xl leading-relaxed">I'm a Web Developer bridging the gap between high-performance code and versatile no-code solutions. Driven by clean aesthetics and high-impact, modern web design.
+
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+              <a href="#projects" class="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3.5 rounded-full shadow-lg shadow-pink-500/40 font-semibold transform hover:scale-105 transition-all">
+                Explore Projects <span>🚀</span>
+              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-800 dark:text-white px-8 py-3.5 rounded-full hover:bg-gray-50 dark:hover:bg-white/20 transition-all font-medium">
+                Contact Me
+              </a>
+            </div>
+
+
+            <!-- <div class="text-sm font-medium text-gray-400">
+              Current Portfolio: <a href="https://kaur7611.github.io/my_portfolio/" class="text-pink-500 hover:underline decoration-wavy" target="_blank" rel="noreferrer" >https://kaur7611.github.io/my_portfolio/</a>
+            </div> -->
+
+          </div>
+
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-pink-400 to-violet-400 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+            
+            <div class="relative rounded-3xl p-8 glass bg-white/70 dark:bg-charcoal/80 border border-white/50 dark:border-white/10 shadow-2xl">
+              <div class="flex items-start gap-5">
+                
+                <div class="relative flex-shrink-0">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-pink-500 to-violet-600 rounded-[20px] blur-md opacity-50 dark:opacity-70 animate-pulse"></div>
+                    <div class="relative w-20 h-20 rounded-2xl bg-gradient-to-b from-white/80 to-pink-50/30 dark:from-charcoal dark:to-black/50 border border-white/60 dark:border-pink-500/20 shadow-sm flex items-center justify-center backdrop-blur-sm overflow-hidden">
+                         <div class="absolute top-0 right-0 w-16 h-16 bg-pink-300/20 rounded-full blur-2xl mix-blend-overlay pointer-events-none"></div>
+                         <span class="font-logo relative text-transparent bg-clip-text bg-gradient-to-br from-pink-600 to-violet-600 dark:from-pink-400 dark:to-violet-400 font-extrabold text-4xl tracking-tightest leading-none">
+                            K<span class="-ml-[5px] text-rose-500 dark:text-rose-400 opacity-90">K</span>
+                         </span>
+                    </div>
+                </div>
+                <div>
+                  <div class="text-2xl font-bold text-gray-900 dark:text-white">Kamaljit Kaur</div>
+
+                  <div class="text-pink-500 font-medium">Web Developer</div>
+
+                  <div class="text-sm text-gray-500 mt-1 flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                   Jalandhar, Punjab, India
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-6 border-gray-200 dark:border-gray-700" />
+
+              <div class="space-y-4 text-sm text-gray-700 dark:text-gray-300">
+
+                <p><strong>About:</strong> Crafting modern websites with React, Tailwind CSS, and Flask. I build versatile Wix sites optimized with precision Technical SEO and GEO-targeting to drive local growth.</p>
+
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-300 text-xs font-bold border border-pink-100 dark:border-pink-800">React</span>
+                  <span class="px-3 py-1 rounded-lg bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-xs font-bold border border-blue-100 dark:border-blue-800">Flask</span>
+                  <span class="px-3 py-1 rounded-lg bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-xs font-bold border border-purple-100 dark:border-purple-800">Tailwind</span>
+    <span class="px-3 py-1 rounded-lg bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300 text-xs font-bold border border-amber-100 dark:border-amber-800">Wix</span>
+                 <span class="px-3 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-300 text-xs font-bold border border-emerald-100 dark:border-emerald-800">SEO</span>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -top-6 -right-6 animate-bounce" style="animation-duration: 3s;">
+              <div class="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-lg text-xl border border-gray-100 dark:border-gray-700">👩‍💻</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+   <section id="skills" class="py-20">
+  <div class="max-w-6xl mx-auto px-6"> 
+    <div class="flex items-center gap-3 mb-8">
+      <span class="h-px w-8 bg-pink-400"></span>
+      <span class="text-pink-500 uppercase tracking-widest text-xs font-bold">Expertise</span>
+    </div>
+    <h2 class="text-4xl font-bold mb-10 text-gray-900 dark:text-white">Skills & Technologies</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      
+      <div class="p-4 rounded-3xl bg-white dark:bg-charcoal border border-rose-100 dark:border-white/5 shadow-lg shadow-pink-100/50 dark:shadow-none hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-10 h-10 bg-pink-100 dark:bg-pink-900/30 rounded-xl flex items-center justify-center text-xl mb-4">💻</div>
+        <h3 class="text-lg font-bold mb-3 dark:text-white">Frontend</h3>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-xs">
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-pink-400 rounded-full"></div> React.js</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-pink-400 rounded-full"></div> JavaScript</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-pink-400 rounded-full"></div> Tailwind CSS</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-3xl bg-white dark:bg-charcoal border border-rose-100 dark:border-white/5 shadow-lg shadow-pink-100/50 dark:shadow-none hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-xl mb-4">⚙️</div>
+        <h3 class="text-lg font-bold mb-3 dark:text-white">Backend</h3>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-xs">
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> Python & Flask</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> SQL & Auth</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-purple-400 rounded-full"></div> RESTful APIs</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-3xl bg-white dark:bg-charcoal border border-rose-100 dark:border-white/5 shadow-lg shadow-pink-100/50 dark:shadow-none hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-xl mb-4">🛠️</div>
+        <h3 class="text-lg font-bold mb-3 dark:text-white">Tools</h3>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-xs">
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div> Git & GitHub</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div> VS Code</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-blue-400 rounded-full"></div> Deployment</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-3xl bg-white dark:bg-charcoal border border-rose-100 dark:border-white/5 shadow-lg shadow-pink-100/50 dark:shadow-none hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center text-xl mb-4">🚀</div>
+        <h3 class="text-lg font-bold mb-3 dark:text-white">Platforms</h3>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-xs">
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-amber-400 rounded-full"></div> Wix</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-amber-400 rounded-full"></div> Carrd</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-amber-400 rounded-full"></div> Shopify</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-3xl bg-white dark:bg-charcoal border border-rose-100 dark:border-white/5 shadow-lg shadow-pink-100/50 dark:shadow-none hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center text-xl mb-4">📈</div>
+        <h3 class="text-lg font-bold mb-3 dark:text-white">SEO Tools</h3>
+        <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-[10px] leading-tight">
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> SEO Meta in One Click</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> SEO Quake</li>
+          <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-emerald-400 rounded-full"></div> SEO Rabbit Traffic Booster (Wix)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+     
+
+
+   <section class="py-12">
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white/50 dark:bg-charcoal/50 rounded-3xl p-8 border border-rose-100 dark:border-white/5 backdrop-blur-sm">
+              <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <span class="text-pink-500">🎓</span> Education
+              </h3>
+              <div class="border-l-2 border-pink-200 dark:border-pink-900 pl-4 ml-1">
+                <p class="font-bold text-lg dark:text-white">12th Grade (2024)</p>
+                <p class="text-pink-500 font-semibold">96% Score</p>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Kapurthala, Punjab</p>
+              </div>
+            </div>
+
+            <div class="bg-white/50 dark:bg-charcoal/50 rounded-3xl p-8 border border-rose-100 dark:border-white/5 backdrop-blur-sm">
+              <h3 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                <span class="text-pink-500">🏆</span> Certifications
+              </h3>
+              <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+                <li class="flex items-start justify-between border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span>Scientific Computing with Python</span>
+                  <a href="https://www.freecodecamp.org/certification/fcc78083679-89c1-4c40-af05-979b533adab0/scientific-computing-with-python-v7" class="text-pink-500 hover:text-pink-600 text-xs font-bold uppercase">Verify</a>
+                </li>
+                <li class="flex items-start justify-between border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span>Responsive Web Design</span>
+                  <a href="https://www.freecodecamp.org/certification/fcc78083679-89c1-4c40-af05-979b533adab0/responsive-web-design" class="text-pink-500 hover:text-pink-600 text-xs font-bold uppercase">Verify</a>
+                </li>
+                <li class="flex items-start justify-between pb-2">
+                  <span>JS Algorithms & Data Structures</span>
+                  <a href="https://www.freecodecamp.org/certification/fcc78083679-89c1-4c40-af05-979b533adab0/javascript-algorithms-and-data-structures-v8" class="text-pink-500 hover:text-pink-600 text-xs font-bold uppercase">Verify</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section id="experience" class="py-16 bg-white dark:bg-[#0a0a0a] transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-8">
+      <span class="h-px w-8 bg-pink-400"></span>
+      <span class="text-pink-500 uppercase tracking-widest text-xs font-bold">My Latest Work</span>
+    </div>
+    <h2 class="text-3xl font-bold mb-12 text-gray-900 dark:text-white">Experience</h2>
+    
+    <div class="relative pl-8 border-l border-gray-200 dark:border-gray-800 space-y-20">
+      
+      <div class="relative group">
+        <div class="absolute -left-[41px] top-1 w-7 h-7 bg-white dark:bg-[#0a0a0a] rounded-full border border-gray-200 dark:border-gray-800 shadow flex items-center justify-center">
+          <div class="w-2.5 h-2.5 bg-pink-600 rounded-full group-hover:scale-125 transition-transform shadow-lg shadow-pink-600/20"></div>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-[#111111] p-8 rounded-[2rem] border border-gray-100 dark:border-white/5 transition-all">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Web Developer Intern</h3>
+            <span class="bg-pink-600/80 text-white text-[10px] font-bold px-3 py-1 rounded-md mt-1 uppercase tracking-wider">Jan 2026 – Apr 2026</span>
+          </div>
+          <div class="flex items-center gap-2 mb-8">
+            <svg class="w-4 h-4 text-pink-500/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H5a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-medium">WeBlunder • Remote</p>
+          </div>
+
+          <ul class="space-y-6 mb-12">
+            <li class="flex items-start gap-4">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded bg-pink-900/10 dark:bg-pink-900/20 flex items-center justify-center text-pink-500">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">Developed and maintained high-performance websites across <span class="font-semibold text-pink-500">E-commerce, Restaurant, Education, and Real Estate</span> industries.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded bg-blue-900/10 dark:bg-blue-900/20 flex items-center justify-center text-blue-500">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">Optimized <span class="font-semibold text-blue-500">Technical & On-Page SEO</span> for various live websites, implementing meta-hierarchies and GEO-tagging.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded bg-purple-900/10 dark:bg-purple-900/20 flex items-center justify-center text-purple-500">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">Managed <span class="font-semibold text-purple-500">400+ product entries</span> in Wix CMS and redesigned Shopify components for CRO.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded bg-green-900/10 dark:bg-green-900/20 flex items-center justify-center text-green-500">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">Scaled content systems by developing full restaurant platforms with <span class="font-semibold text-green-500">50+ SEO-optimized blogs</span> and menus.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded bg-orange-900/10 dark:bg-orange-900/20 flex items-center justify-center text-orange-500">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">Contributed effectively to team projects at <span class="font-bold text-pink-500">WeBlunder</span>, gaining hands-on experience in professional collaboration.</p>
+            </li>
+          </ul>
+
+          <div class="relative group/slider">
+            <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-400 dark:text-gray-600 mb-6 pl-4 border-l-2 border-pink-600">Work Highlights</h4>
+
+            <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-full shadow-2xl items-center justify-center text-gray-500 hover:text-pink-500 transition-all z-20 hidden md:flex opacity-0 pointer-events-none">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+
+            <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white dark:bg-[#111] border border-gray-200 dark:border-white/10 rounded-full shadow-2xl items-center justify-center text-gray-500 hover:text-pink-500 transition-all z-20 hidden md:flex">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+
+            <div id="scrollContainer" class="flex gap-6 overflow-x-auto pb-4 pt-4 px-1 snap-x no-scrollbar scroll-smooth">
+              <div id="scrollHint" class="absolute right-4 top-1/2 -translate-y-1/2 text-pink-500 md:hidden pointer-events-none animate-pulse">
+  
+  <svg class="w-7 h-7 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8" d="M9 5l7 7-7 7"/>
+  </svg>
+
+</div>
+              <a href="https://www.sunrisehomesolutions.in/" class="block min-w-[300px] md:min-w-[350px] snap-start group/card bg-gray-200/50 dark:bg-white/5 rounded-[2rem] p-4 border border-transparent transition-all hover:-translate-y-2 hover:shadow-2xl">
+                <div class="aspect-video mb-4 rounded-2xl bg-gray-200 dark:bg-gray-900 overflow-hidden"><img src="image/Sunrise.png" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"></div>
+                <h5 class="font-bold text-gray-900 dark:text-white mb-2 group-hover/card:text-pink-500 transition-colors">Sunrise Home Solutions</h5>
+                <p class="text-[11px] text-gray-500 mb-4 tracking-wide uppercase">• 400+ Product Optimization & SEO</p>
+                <div class="text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest pt-3 border-t border-gray-200 dark:border-white/5">Wix CMS</div>
+              </a>
+
+               <a href="https://www.heavengroup.in/" class="block min-w-[300px] md:min-w-[350px] snap-start group/card bg-gray-200/50 dark:bg-white/5 rounded-[2rem] p-4 border border-transparent transition-all hover:-translate-y-2 hover:shadow-2xl">
+                <div class="aspect-video mb-4 rounded-2xl bg-gray-200 dark:bg-gray-900 overflow-hidden"><img src="image/HeavenGroup.png" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"></div>
+                <h5 class="font-bold text-gray-900 dark:text-white mb-2 group-hover/card:text-pink-500 transition-colors">Heaven Group</h5>
+                <p class="text-[11px] text-gray-500 mb-4 tracking-wide uppercase">• SEO & GEO, Responsiveness, Design Improvements</p>
+                <div class="text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest pt-3 border-t border-gray-200 dark:border-white/5">Real Estate</div>
+              </a>
+
+              <a href="https://www.trinitypedagogy.com/" class="block min-w-[300px] md:min-w-[350px] snap-start group/card bg-gray-200/50 dark:bg-white/5 rounded-[2rem] p-4 border border-transparent transition-all hover:-translate-y-2 hover:shadow-2xl">
+                <div class="aspect-video mb-4 rounded-2xl bg-gray-200 dark:bg-gray-900 overflow-hidden"><img src="image/TrinityPedagogy.png" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"></div>
+                <h5 class="font-bold text-gray-900 dark:text-white mb-2 group-hover/card:text-pink-500 transition-colors">Trinity Pedagogy</h5>
+                <p class="text-[11px] text-gray-500 mb-4 tracking-wide uppercase">• Full SEO, Design & Layout Improvements </p>
+                <div class="text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest pt-3 border-t border-gray-200 dark:border-white/5">Education</div>
+              </a>
+
+              <a href="https://www.weblunder.com/" class="block min-w-[300px] md:min-w-[350px] snap-start group/card bg-gray-200/50 dark:bg-white/5 rounded-[2rem] p-4 border border-transparent transition-all hover:-translate-y-2 hover:shadow-2xl">
+                <div class="aspect-video mb-4 rounded-2xl bg-gray-200 dark:bg-gray-900 overflow-hidden"><img src="image/WeBlunder.png" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"></div>
+                <h5 class="font-bold text-gray-900 dark:text-white mb-2 group-hover/card:text-pink-500 transition-colors">WeBlunder</h5>
+                <p class="text-[11px] text-gray-500 mb-4 tracking-wide uppercase">• Contributed in Design, Development and SEO</p>
+                <div class="text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest pt-3 border-t border-gray-200 dark:border-white/5">IT</div>
+              </a>
+             
+              <a href="https://chuckleberrie.com/" class="block min-w-[300px] md:min-w-[350px] snap-start group/card bg-gray-200/50 dark:bg-white/5 rounded-[2rem] p-4 border border-transparent transition-all hover:-translate-y-2 hover:shadow-2xl">
+                <div class="aspect-video mb-4 rounded-2xl bg-gray-200 dark:bg-gray-900 overflow-hidden"><img src="image/ChuckleBerrie.png" class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"></div>
+                <h5 class="font-bold text-gray-900 dark:text-white mb-2 group-hover/card:text-pink-500 transition-colors">ChuckleBerrie</h5>
+                <p class="text-[11px] text-gray-500 mb-4 tracking-wide uppercase">• Redesign and Interactivity</p>
+                <div class="text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest pt-3 border-t border-gray-200 dark:border-white/5">Shopify</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+const container = document.getElementById("scrollContainer");
+const hint = document.querySelector(".animate-pulse");
+
+container.addEventListener("scroll", () => {
+  if (hint) hint.style.display = "none";
+});
+const scrollContainer = document.getElementById("scrollContainer");
+const scrollHint = document.getElementById("scrollHint");
+
+scrollContainer.addEventListener("scroll", () => {
+  scrollHint.style.opacity = "0";
+  scrollHint.style.transition = "opacity 0.4s ease";
+});
+</script>
+
+      <div class="relative group">
+        <div class="absolute -left-[41px] top-1 w-7 h-7 bg-white dark:bg-[#0a0a0a] rounded-full border border-gray-200 dark:border-gray-800 shadow flex items-center justify-center">
+          <div class="w-2.5 h-2.5 bg-gray-400 dark:bg-gray-700 rounded-full transition-colors group-hover:bg-pink-400"></div>
+        </div>
+        
+        <div class="bg-gray-50 dark:bg-[#111111] p-8 rounded-[2rem] border border-gray-100 dark:border-white/5">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Web Development Intern</h3>
+            <span class="bg-pink-600/80 text-white text-[10px] font-bold px-3 py-1 rounded-md mt-1 uppercase tracking-wider">Sept 2025</span>
+          </div>
+          <div class="flex items-center gap-2 mb-8">
+            <svg class="w-4 h-4 text-pink-500/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H5a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            <p class="text-gray-600 dark:text-gray-400 text-sm font-medium">SpikiTech Private Limited • Remote</p>
+          </div>
+
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded bg-pink-900/10 dark:bg-pink-900/20 flex items-center justify-center text-pink-500">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">Worked on <span class="font-semibold text-pink-500">innovative projects</span> while learning professional development standards.</p>
+            </li>
+            <li class="flex items-start gap-4">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded bg-purple-900/10 dark:bg-purple-900/20 flex items-center justify-center text-purple-500">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+              </div>
+              <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">Gained expertise in <span class="font-semibold text-purple-500">Wix, Carrd, and React</span>, developing a versatile technical skill set.</p>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* Completely hides the slider scrollbar visual */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollContainer = document.getElementById('scrollContainer');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    if (scrollContainer && nextBtn && prevBtn) {
+      nextBtn.onclick = () => scrollContainer.scrollBy({ left: 380, behavior: 'smooth' });
+      prevBtn.onclick = () => scrollContainer.scrollBy({ left: -380, behavior: 'smooth' });
+
+      scrollContainer.onscroll = () => {
+        const scrolled = scrollContainer.scrollLeft > 50;
+        prevBtn.style.opacity = scrolled ? "1" : "0";
+        prevBtn.style.pointerEvents = scrolled ? "auto" : "none";
+        
+        const isAtEnd = scrollContainer.scrollLeft + scrollContainer.offsetWidth >= scrollContainer.scrollWidth - 10;
+        nextBtn.style.opacity = isAtEnd ? "0" : "1";
+        nextBtn.style.pointerEvents = isAtEnd ? "none" : "auto";
+      };
+    }
+  });
+</script>
+<section id="projects" class="py-20 bg-gradient-to-b from-transparent to-white/40 dark:to-black/20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center gap-3 mb-8">
+      <span class="h-px w-8 bg-pink-400"></span>
+      <span class="text-pink-500 uppercase tracking-widest text-xs font-bold">Portfolio</span>
+    </div>
+
+    <h2 class="text-4xl font-bold mb-10 text-gray-900 dark:text-white">Personal Projects</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+
+      <article class="group relative bg-white dark:bg-charcoal rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-rose-100 dark:border-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+        
+        <div class="relative overflow-hidden bg-gray-100 dark:bg-gray-800 shrink-0">
+          <img src="image/load_pilot.png" alt="LoadPilot Project" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+        </div>
+
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex justify-between items-center gap-2">
+            <h3 class="text-lg font-bold text-green-500 line-clamp-1">🧭 LoadPilot | Logistics SaaS</h3>
+            <span class="text-lg shrink-0">📊</span>
+          </div>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-2 mb-4 text-sm leading-relaxed line-clamp-2">
+            A full-stack logistics suite that automates truck dispatching through relational data tracking, real-time analytics, and secure cloud deployment.
+          </p>
+
+          <div class="mt-auto">
+            <a href="https://kaur7611.pythonanywhere.com/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white hover:text-green-500 transition-colors">
+              Live Demo
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="group relative bg-white dark:bg-charcoal rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-rose-100 dark:border-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+        
+        <div class="relative overflow-hidden bg-gray-100 dark:bg-gray-800 shrink-0">
+          <img src="image/blog.png" alt="Blog App Project" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+        </div>
+
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex justify-between items-center gap-2">
+            <h3 class="text-lg font-bold text-purple-500 line-clamp-1">📝 Blog App</h3>
+            <span class="text-lg shrink-0">🚀</span>
+          </div>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-2 mb-4 text-sm leading-relaxed line-clamp-2">
+            Full-stack blog platform with Flask backend. Includes user authentication, CRUD operations for posts, and a comment system.
+          </p>
+
+          <div class="mt-auto">
+            <a href="https://k7611.pythonanywhere.com/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white hover:text-purple-500 transition-colors">
+              Live Demo
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="group relative bg-white dark:bg-charcoal rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-rose-100 dark:border-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+        
+        <div class="relative overflow-hidden bg-gray-100 dark:bg-gray-800 shrink-0">
+          <img src="image/weather_app.png" alt="Weather App Project" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+        </div>
+
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex justify-between items-center gap-2">
+            <h3 class="text-lg font-bold text-blue-500 line-clamp-1">🌤️ Weather App</h3>
+            <span class="text-lg shrink-0">⚡</span>
+          </div>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-2 mb-4 text-sm leading-relaxed line-clamp-2">
+            Real-time weather forecast application using OpenWeather API. Features dynamic background and functionality to save favorite cities.
+
+          <div class="mt-auto">
+            <a href="https://kaur7611.github.io/weather_app/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white hover:text-blue-500 transition-colors">
+              Live Demo
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="group relative bg-white dark:bg-charcoal rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-rose-100 dark:border-white/5 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+        
+        <div class="relative overflow-hidden bg-gray-100 dark:bg-gray-800 shrink-0">
+          <img src="image/coffee_culture.png" alt="CoffeeCulture Project" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+        </div>
+
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex justify-between items-center gap-2">
+            <h3 class="text-lg font-bold text-pink-500 line-clamp-1">☕ CoffeeCulture</h3>
+            <span class="text-lg shrink-0">✨</span>
+          </div>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-2 mb-4 text-sm leading-relaxed line-clamp-2">
+            Modern café-themed web app built using React.js and Tailwind CSS. Features a beautiful responsive gallery and menu system.
+          </p>
+          
+
+          <div class="mt-auto">
+            <a href="https://kaur7611.github.io/coffee_culture/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white hover:text-pink-500 transition-colors">
+              Live Demo
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section id="contact" class="py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="bg-white/60 dark:bg-charcoal/60 rounded-[2.5rem] md:rounded-[3rem] p-6 md:p-16 border border-rose-100 dark:border-white/5 shadow-2xl backdrop-blur-md">
+      
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+        
+        <div class="space-y-6 md:space-y-8">
+          
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+              Let’s start a <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">conversation.</span>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mt-3 md:mt-4 leading-relaxed text-sm md:text-base">
+
+              I’m currently open to full-time roles and freelance projects. Connect with me on LinkedIn or e-mail me and grab my resume below.
+            </p>
+          </div>
+
+          <a href="mailto:76Kaur11@gmail.com" class="group flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-white/50 dark:bg-white/5 border border-pink-100 dark:border-white/10 hover:border-pink-400 dark:hover:border-pink-500 hover:shadow-lg hover:shadow-pink-500/10 transition-all duration-300 w-full">
+
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-500 group-hover:scale-110 transition-transform flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            </div>
+            <div class="min-w-0">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">Email Me</div>
+              <div class="text-base md:text-lg font-bold text-gray-900 dark:text-white group-hover:text-pink-500 transition-colors truncate">76Kaur11@gmail.com</div>
+            </div>
+          </a>
+
+          <div class="flex flex-wrap items-center gap-3 md:gap-4 pt-2">
+            <a href="Kamaljit Kaur Resume.pdf" download class="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-600 hover:to-purple-700 text-white px-4 md:px-6 py-3 md:py-3.5 rounded-xl font-bold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 hover:scale-[1.02] transition-all min-w-[120px]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>Resume</span>
+            </a>
+
+
+            <a href="https://www.linkedin.com/in/kamaljit-kaur-webdev" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-blue-600 hover:border-blue-300 dark:hover:text-blue-400 transition-all hover:scale-110 flex-shrink-0">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+
+            <a href="https://github.com/Kaur7611" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white hover:border-gray-400 transition-all hover:scale-110 flex-shrink-0">
+
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+
+        </div>
+
+        <form id="contactForm" class="space-y-4 bg-white dark:bg-black/40 p-5 md:p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-white/5" onsubmit="handleSubmit(event)">
+
+          <div>
+            <label for="name" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">Name</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500 dark:text-white transition" placeholder="John Doe">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500 dark:text-white transition" placeholder="john@example.com">
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">Message</label>
+            <textarea id="message" name="message" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-pink-500 dark:text-white transition h-32" placeholder="Tell me about your project..."></textarea>
+          </div>
+          <div id="formMessage" class="hidden text-center text-sm font-semibold text-green-600 dark:text-green-400">
+  ✅ Message sent successfully! I will get back to you soon.
+</div>
+          <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-pink-500/30 hover:shadow-pink-500/50 hover:scale-[1.02] transition-all">Send Message</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="relative bg-white/60 dark:bg-black/60 border-t border-gray-200 dark:border-white/5 backdrop-blur-md">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent opacity-50"></div>
+  
+  <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2">
+       <span class="font-logo font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">KK</span>
+       <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">© 2026 Kamaljit Kaur</span>
+    </div>
+    <div class="text-sm text-gray-500 dark:text-gray-400">
+      Designed with <span class="text-pink-500 animate-pulse">❤️</span> & Tailwind CSS
+    </div>
+  </div>
+</footer>
+
+  </div>
+
+  <script>
+    const themeBtn = document.getElementById('themeToggle');
+    const iconSun = document.getElementById('iconSun');
+    const iconMoon = document.getElementById('iconMoon');
+    const htmlEl = document.documentElement;
+
+    const userTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const enableDark = () => {
+      htmlEl.classList.add('dark');
+      iconSun.classList.add('hidden');
+      iconMoon.classList.remove('hidden');
+      localStorage.setItem('theme', 'dark');
+    };
+
+    const enableLight = () => {
+      htmlEl.classList.remove('dark');
+      iconSun.classList.remove('hidden');
+      iconMoon.classList.add('hidden');
+      localStorage.setItem('theme', 'light');
+    };
+
+    if (userTheme === 'dark' || (!userTheme && systemTheme)) {
+      enableDark();
+    } else {
+      enableLight();
+    }
+
+    themeBtn.addEventListener('click', () => {
+      if (htmlEl.classList.contains('dark')) {
+        enableLight();
+      } else {
+        enableDark();
+      }
+    });
+  
+    // --- 1. Client-Side Validation Function ---
+function validateForm() {
+    // Get values, trimming whitespace
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Check if fields are empty
+    if (name === '' || email === '' || message === '') {
+        alert('All fields are required!');
+        return false;
+    }
+
+    // Simple email format check using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+    }
+
+    return true; 
+}
+
+// --- 2. Handle AJAX Submission Function ---
+
+async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (!validateForm()) {
+        return;
+    }
+    
+    const FORMSPREE_URL = "https://formspree.io/f/xzzngvlr"; 
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.innerText; 
+    submitButton.disabled = true;
+    submitButton.innerText = 'Sending...';
+
+    try {
+        const response = await fetch(FORMSPREE_URL, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json' 
+            }
+        });
+
+        
+        if (response.ok) {
+            const messageBox = document.getElementById("formMessage");
+
+messageBox.classList.remove("hidden");
+form.reset();
+setTimeout(() => {
+    messageBox.classList.add("hidden");
+}, 4000);
+        } else {
+            
+            const data = await response.json();
+            if (Object.hasOwn(data, 'errors')) {
+                alert(data["errors"].map(error => error["message"]).join(", "));
+            } else {
+                alert('Oops! There was a problem submitting your form');
+            }
+        }
+    } catch (error) {
+        
+        console.error('Error:', error);
+        alert('Network error. Please check your internet connection.');
+    } finally {
+        
+        submitButton.disabled = false;
+        submitButton.innerText = originalButtonText;
+    }
+}
+</script>
+
+</body>
+</html>
